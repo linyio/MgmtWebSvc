@@ -1,0 +1,33 @@
+#Brief: extracts device name from the down info file set by the up script
+#Params:
+#   $1: info file
+function Dev
+{
+    local infoFile=$1
+    grep --max-count=1 -E "^Interface: " $infoFile |
+        while read keyword ifName; do
+            echo "$ifName"
+            break
+        done
+}
+
+#Brief: returns a list of blocked dns servers (one per line)
+#Params:
+#	$1: info file
+function BlockedDns
+{
+    local infoFile=$1
+    grep -E "^Blocked dns: " $infoFile |
+    while read keyword dns; do
+        echo "$dns"
+    done
+}
+
+#Brief: returns a binary path if exists or no output in case is missing
+#Params:
+#	$1: binary name
+function BinPath
+{
+    local binName=$1
+    echo "$(type -p $binName)"
+}

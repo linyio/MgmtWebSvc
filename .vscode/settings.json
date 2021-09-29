@@ -1,0 +1,8 @@
+{
+    // "python.venvPath": "PyVenv",
+    "python.dataScience.debugJustMyCode": false,
+    "python.jediEnabled": true,
+    // "python.jediEnabled": false
+    // "python.languageServer": "microsoft"
+    // "python.analysis.downloadChannel": "beta"
+}
